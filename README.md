@@ -51,6 +51,8 @@ class App extends Component {
 | :------------ |:---------------:| :---------------:| :-----|
 | [text](#text) | - | `string` / `node` | Text message to display, or custom element ([see below](#text)) |
 | [styles](#styles) | ToastStyles.info | `object` | Styles for the container and text ([see below](#styles)) |
+| duration | 3000 | `number` | Duration in ms the toast is shown for |
+| height | 100 | `number` | Height of the toast message |
 | onShow | null | `func` | Callback called when this message is shown |
 | onHide | null | `func` | Callback called when this message is hidden |
 
