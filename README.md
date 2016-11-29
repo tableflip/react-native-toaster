@@ -1,4 +1,4 @@
-# react-native-toaster
+# react-native-toaster [![dependencies Status](https://david-dm.org/tableflip/react-native-toaster/status.svg)](https://david-dm.org/tableflip/react-native-toaster)
 
 Simple top-pop toast feedback messages for React Native.
 
