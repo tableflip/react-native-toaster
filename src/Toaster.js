@@ -30,6 +30,7 @@ class Toaster extends Component {
 
     if (props.message) {
       messages = this.cloneWithId(props.message)
+      messages = Array.isArray(messages) ? messages : [messages]
     }
 
     this.state = { messages }
@@ -44,7 +45,7 @@ class Toaster extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    if (!nextProps.message) return null
+    if (!nextProps.message) return
     const message = this.cloneWithId(nextProps.message)
     this.setState({ messages: this.state.messages.concat(message) })
   }
