@@ -2,6 +2,8 @@
 
 Simple top-pop toast feedback messages for React Native.
 
+![demo](https://cloud.githubusercontent.com/assets/152863/20730697/fb6bf4e0-b67e-11e6-9964-591fb7a1dc78.gif)
+
 ## Example
 
 ```js
