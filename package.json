@@ -1,6 +1,6 @@
 {
   "name": "react-native-toaster",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple top-pop toast feedback messages for React Native",
   "main": "src/index.js",
   "scripts": {
