@@ -41,7 +41,7 @@ class App extends Component {
 
 | Prop  | Default  | Type | Description |
 | :------------ |:---------------:| :---------------:| :-----|
-| message | - | `object` / `array` | The current toast message to display ([see below](#message)). Multiple messages are shown one at a time after each other. |
+| [message](#message) | - | `object` / `array` | The current toast message to display ([see below](#message)). Multiple messages are shown one at a time after each other. |
 | onShow | null | `func` | Callback called when a message is shown, passed the message as the first parameter |
 | onHide | null | `func` | Callback called when a message is hidden, passed the message as the first parameter |
 
@@ -49,8 +49,8 @@ class App extends Component {
 
 | Prop  | Default  | Type | Description |
 | :------------ |:---------------:| :---------------:| :-----|
-| text | - | `string` / `node` | Text message to display, or custom element ([see below](#text)) |
-| styles | ToastStyles.info | `object` | Styles for the container and text ([see below](#styles)) |
+| [text](#text) | - | `string` / `node` | Text message to display, or custom element ([see below](#text)) |
+| [styles](#styles) | ToastStyles.info | `object` | Styles for the container and text ([see below](#styles)) |
 | onShow | null | `func` | Callback called when this message is shown |
 | onHide | null | `func` | Callback called when this message is hidden |
 
