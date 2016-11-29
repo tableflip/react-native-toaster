@@ -60,7 +60,7 @@ class App extends Component {
 
 #### `text`
 
-The `text` property can be either a simple string or a a custom element to be rendered. If a string is passed, it is wrapped in a container `View` and `Text` element:
+The `text` property can be either a simple string or a custom element to be rendered. If a string is passed, it is wrapped in a container `View` and `Text` element:
 
 ```js
 text = (
