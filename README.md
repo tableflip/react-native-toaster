@@ -29,7 +29,7 @@ class App extends Component {
 
   render () {
     return (
-      <View style={container}>
+      <View>
         <Toaster message={this.state.message} />
       </View>
     )
