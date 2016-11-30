@@ -194,6 +194,7 @@ function toastMessage (state = null, action) {
 
 export default combineReducers({
   appState,
+  toastMessage,
   connect: (state = null) => state
 })
 ```
