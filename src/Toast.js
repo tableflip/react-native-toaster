@@ -3,7 +3,8 @@ import {
   Animated,
   TouchableWithoutFeedback,
   View,
-  Text
+  Text,
+  Vibration
 } from 'react-native'
 import ToastStyles from './ToastStyles'
 
@@ -48,6 +49,8 @@ class Toast extends Component {
     Animated
       .timing(animatedValue, { toValue: 1, duration: 350 })
       .start()
+
+    Vibration.vibrate()
 
     const { duration, onShow } = this.props
     const timeoutId = setTimeout(() => this.hideToast(), duration + 350)

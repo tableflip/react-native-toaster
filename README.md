@@ -198,3 +198,11 @@ export default combineReducers({
   connect: (state = null) => state
 })
 ```
+
+## Vibration
+
+Error toasts will vibrate the device if vibration is supported. For compatibility with Android add the following to `AndroidManifest.xml`
+
+```xml
+<uses-permission android:name="android.permission.VIBRATE"/>
+```
