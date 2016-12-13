@@ -1,56 +1,33 @@
 import { StyleSheet } from 'react-native'
 
+export const base = {
+  container: {
+    paddingTop: 25,
+    paddingRight: 15,
+    paddingBottom: 15,
+    paddingLeft: 15
+  },
+  text: {
+    color: '#ffffff',
+    fontWeight: 'bold'
+  }
+}
+
 export default {
   info: StyleSheet.create({
-    container: {
-      backgroundColor: '#2487DB',
-      paddingTop: 25,
-      paddingRight: 15,
-      paddingBottom: 15,
-      paddingLeft: 15
-    },
-    text: {
-      color: '#ffffff',
-      fontWeight: 'bold'
-    }
+    container: StyleSheet.flatten([base.container, { backgroundColor: '#2487DB' }]),
+    text: base.text
   }),
   success: StyleSheet.create({
-    container: {
-      backgroundColor: 'green',
-      paddingTop: 25,
-      paddingRight: 15,
-      paddingBottom: 15,
-      paddingLeft: 15
-    },
-    text: {
-      color: '#ffffff',
-      fontWeight: 'bold'
-    }
+    container: StyleSheet.flatten([base.container, { backgroundColor: 'green' }]),
+    text: base.text
   }),
   warning: StyleSheet.create({
-    container: {
-      backgroundColor: '#ec971f',
-      paddingTop: 25,
-      paddingRight: 15,
-      paddingBottom: 15,
-      paddingLeft: 15
-    },
-    text: {
-      color: '#ffffff',
-      fontWeight: 'bold'
-    }
+    container: StyleSheet.flatten([base.container, { backgroundColor: '#ec971f' }]),
+    text: base.text
   }),
   error: StyleSheet.create({
-    container: {
-      backgroundColor: 'red',
-      paddingTop: 25,
-      paddingRight: 15,
-      paddingBottom: 15,
-      paddingLeft: 15
-    },
-    text: {
-      color: '#ffffff',
-      fontWeight: 'bold'
-    }
+    container: StyleSheet.flatten([base.container, { backgroundColor: 'red' }]),
+    text: base.text
   })
 }
