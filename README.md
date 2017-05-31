@@ -198,3 +198,7 @@ export default combineReducers({
   connect: (state = null) => state
 })
 ```
+
+----
+
+A [(╯°□°）╯︵TABLEFLIP](https://tableflip.io) side project.
