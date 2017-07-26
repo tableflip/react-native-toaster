@@ -12,7 +12,11 @@ const noop = () => 0
 class Toast extends Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
-    text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+    text: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.node,
+      PropTypes.func
+    ]).isRequired,
     styles: PropTypes.object,
     duration: PropTypes.number,
     height: PropTypes.number,
@@ -40,6 +44,11 @@ class Toast extends Component {
     }
   }
 
+  componentWillUnmount () {
+    const { timeoutId } = this.state;
+    clearTimeout(timeoutId)
+  }
+
   showToast () {
     const animatedValue = new Animated.Value(0)
 
@@ -55,7 +64,7 @@ class Toast extends Component {
     this.setState({ timeoutId }, onShow)
   }
 
-  hideToast () {
+  hideToast = () => {
     const { timeoutId, animatedValue } = this.state
 
     clearTimeout(timeoutId)
@@ -75,16 +84,28 @@ class Toast extends Component {
       outputRange: [-this.props.height, 0]
     })
 
-    const { styles } = this.props
-    let text = this.props.text
+    const { styles, text } = this.props
+    let textContent;
 
     if (Object.prototype.toString.call(text) === '[object String]') {
-      text = (
-        <View style={styles.container}>
-          <Text style={styles.text}>{text}</Text>
-        </View>
+      textContent = (
+        <TouchableWithoutFeedback onPress={this.onPress}>
+          <View style={styles.container}>
+            <Text style={styles.text}>{text}</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      )
+    } else if (Object.prototype.toString.call(text) === '[object Function]') {
+      textContent = text({ hide: this.hideToast });
+    } else {
+      textContent = (
+        <TouchableWithoutFeedback onPress={this.onPress}>
+          {text}
+        </TouchableWithoutFeedback>
       )
     }
+
+
 
     return (
       <Animated.View style={{
@@ -95,9 +116,7 @@ class Toast extends Component {
         zIndex: 9999,
         transform: [{ translateY: y }]
       }}>
-        <TouchableWithoutFeedback onPress={this.onPress}>
-          {text}
-        </TouchableWithoutFeedback>
+        {textContent}
       </Animated.View>
     )
   }
