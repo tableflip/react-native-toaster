@@ -45,6 +45,14 @@ class Toaster extends Component {
     return Object.assign({ id: Math.random().toString(36) }, obj)
   }
 
+  componentDidMount() {
+    this._isMounted = true;
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+
   componentWillReceiveProps (nextProps) {
     if (!nextProps.message) return
     const message = this.cloneWithId(nextProps.message)
@@ -62,15 +70,17 @@ class Toaster extends Component {
   }
 
   onHide = () => {
-    const message = this.state.messages[0]
-
-    this.setState({ messages: this.state.messages.slice(1) }, () => {
-      if (message.onHide) {
-        message.onHide()
-      }
-
-      this.props.onHide(message)
-    })
+    if (this._isMounted) {
+      const message = this.state.messages[0]
+      
+      this.setState({ messages: this.state.messages.slice(1) }, () => {
+        if (message.onHide) {
+          message.onHide()
+        }
+  
+        this.props.onHide(message)
+      })
+    }
   }
 
   render () {
