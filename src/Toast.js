@@ -18,7 +18,8 @@ class Toast extends Component {
     duration: PropTypes.number,
     height: PropTypes.number,
     onShow: PropTypes.func,
-    onHide: PropTypes.func
+    onHide: PropTypes.func,
+    onPress: PropTypes.func
   }
 
   static defaultProps = {
@@ -26,7 +27,8 @@ class Toast extends Component {
     duration: 3000,
     height: 100,
     onShow: noop,
-    onHide: noop
+    onHide: noop,
+    onPress: noop
   }
 
   state = { animatedValue: new Animated.Value(0), timeoutId: null }
@@ -68,7 +70,7 @@ class Toast extends Component {
     setTimeout(this.props.onHide, 350)
   }
 
-  onPress = () => this.hideToast()
+  onPress = () => this.hideToast() && this.props.onPress()
 
   render () {
     const y = this.state.animatedValue.interpolate({
