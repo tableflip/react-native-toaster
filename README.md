@@ -46,6 +46,7 @@ class App extends Component {
 | [message](#message) | - | `object` / `array` | The current toast message to display ([see below](#message)). Multiple messages are shown one at a time after each other. |
 | onShow | null | `func` | Callback called when a message is shown, passed the message as the first parameter |
 | onHide | null | `func` | Callback called when a message is hidden, passed the message as the first parameter |
+| onPress | null | `func` | Callback called when the user press a message, passed the message as the first parameter |
 
 ### `message`
 
@@ -57,6 +58,7 @@ class App extends Component {
 | height | 100 | `number` | Height of the toast message |
 | onShow | null | `func` | Callback called when this message is shown |
 | onHide | null | `func` | Callback called when this message is hidden |
+| onPress | null | `func` | Callback called when this message is pressed |
 
 #### `text`
 

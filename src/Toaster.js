@@ -16,12 +16,14 @@ class Toaster extends Component {
   static propTypes = {
     message: PropTypes.oneOfType([messageType, PropTypes.arrayOf(messageType)]),
     onShow: PropTypes.func,
-    onHide: PropTypes.func
+    onHide: PropTypes.func,
+    onPress: PropTypes.func
   }
 
   static defaultProps = {
     onShow: noop,
-    onHide: noop
+    onHide: noop,
+    onPress: noop
   }
 
   constructor (props) {
@@ -73,10 +75,20 @@ class Toaster extends Component {
     })
   }
 
+  onPress = () => {
+    const message = this.state.messages[0]
+
+    if (message.onPress) {
+      message.onPress()
+    }
+
+    this.props.onPress(message)
+  }
+
   render () {
     const { messages } = this.state
     if (!messages.length) return null
-    return <Toast {...messages[0]} onShow={this.onShow} onHide={this.onHide} />
+    return <Toast {...messages[0]} onShow={this.onShow} onHide={this.onHide} onPress={this.onPress} />
   }
 }
 
