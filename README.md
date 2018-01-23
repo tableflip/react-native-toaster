@@ -201,6 +201,14 @@ export default combineReducers({
 })
 ```
 
+## Contribute
+
+Feel free to dive in! [Open an issue](https://github.com/tableflip/react-native-toaster/issues/new) or submit PRs.
+
+## License
+
+[ISC](LICENSE) © TABLEFLIP
+
 ----
 
 A [(╯°□°）╯︵TABLEFLIP](https://tableflip.io) side project.
