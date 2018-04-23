@@ -70,7 +70,10 @@ class Toast extends Component {
     setTimeout(this.props.onHide, 350)
   }
 
-  onPress = () => this.hideToast() && this.props.onPress()
+  onPress = () => {
+    this.hideToast();
+    this.props.onPress();
+  }
 
   render () {
     const y = this.state.animatedValue.interpolate({
