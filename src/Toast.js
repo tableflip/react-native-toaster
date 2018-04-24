@@ -71,8 +71,8 @@ class Toast extends Component {
   }
 
   onPress = () => {
-    this.hideToast();
-    this.props.onPress();
+    this.hideToast()
+    this.props.onPress()
   }
 
   render () {
