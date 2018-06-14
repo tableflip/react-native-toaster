@@ -1,8 +1,11 @@
 import { StyleSheet } from 'react-native'
+import { Dimensions } from 'react-native';
+
+const IS_IPHONE_X = Dimensions.get('window').height === 812;
 
 export const base = {
   container: {
-    paddingTop: 25,
+    paddingTop: IS_IPHONE_X ? 45 : 25,
     paddingRight: 15,
     paddingBottom: 15,
     paddingLeft: 15
