@@ -37,6 +37,11 @@ class Toast extends Component {
     this.showToast()
   }
 
+  componentWillUnmount () {
+    const { timeoutId } = this.state;
+    clearTimeout(timeoutId)
+  }
+
   componentWillReceiveProps (nextProps) {
     if (this.props.id !== nextProps.id) {
       this.showToast()
