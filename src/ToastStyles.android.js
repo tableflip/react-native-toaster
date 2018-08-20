@@ -1,8 +1,8 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, StatusBar } from 'react-native'
 
 export const base = {
   container: {
-    paddingTop: 15,
+    paddingTop: StatusBar.currentHeight,
     paddingRight: 15,
     paddingBottom: 15,
     paddingLeft: 15
