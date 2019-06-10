@@ -104,6 +104,7 @@ class Toast extends Component {
         right: 0,
         left: 0,
         zIndex: 9999,
+        elevation: 9999,
         transform: [{ translateY: y }]
       }}>
         <TouchableWithoutFeedback onPress={this.onPress}>
