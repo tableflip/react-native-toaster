@@ -42,10 +42,9 @@ class Toast extends Component {
     clearTimeout(timeoutId)
   }
 
-  componentWillReceiveProps (nextProps) {
-    if (this.props.id !== nextProps.id) {
-      this.showToast()
-    }
+  componentDidUpdate(prevProps) {
+    if (prevProps.id !== this.props.id)
+      this.showToast();
   }
 
   showToast () {

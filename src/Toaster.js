@@ -32,25 +32,25 @@ class Toaster extends Component {
     let messages = []
 
     if (props.message) {
-      messages = this.cloneWithId(props.message)
+      messages = Toaster.cloneWithId(props.message)
       messages = Array.isArray(messages) ? messages : [messages]
     }
 
     this.state = { messages }
   }
 
-  cloneWithId (obj) {
+  static cloneWithId (obj) {
     if (Array.isArray(obj)) {
-      return obj.map(this.cloneWithId)
+      return obj.map(Toaster.cloneWithId)
     }
 
     return Object.assign({ id: Math.random().toString(36) }, obj)
   }
 
-  componentWillReceiveProps (nextProps) {
-    if (!nextProps.message) return
-    const message = this.cloneWithId(nextProps.message)
-    this.setState({ messages: this.state.messages.concat(message) })
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (!nextProps.message) return null;
+    const message = Toaster.cloneWithId(nextProps.message);
+    return {messages: prevState.messages.concat(message)}
   }
 
   onShow = () => {
@@ -67,7 +67,7 @@ class Toaster extends Component {
     const message = this.state.messages[0]
 
     this.setState({ messages: this.state.messages.slice(1) }, () => {
-      if (message.onHide) {
+      if (message && message.onHide) {
         message.onHide()
       }
 
@@ -78,7 +78,7 @@ class Toaster extends Component {
   onPress = () => {
     const message = this.state.messages[0]
 
-    if (message.onPress) {
+    if (message && message.onPress) {
       message.onPress()
     }
 
